@@ -39,17 +39,17 @@ public:
 	/* Destructor */
 	~PlainFFT(void);
 	/* Functions */
-	void ComplexToMagnitude(long *vReal, long *vImag, uint16_t samples);
-	void Compute(long *vReal, long *vImag, uint16_t samples, uint8_t dir);
+	void ComplexToMagnitude(float *vReal, float *vImag, uint16_t samples);
+	void Compute(float *vReal, float *vImag, uint16_t samples, uint8_t dir);
 	//double MajorPeak(double *vD, int samples, double samplingFrequency);//ithele *
 	uint8_t Revision(void);
-	void Windowing(long *vData, uint16_t samples, uint8_t windowType, uint8_t dir); 
-	//void printVector(long *vD, uint8_t n, uint8_t scaleType);
+	void Windowing(float *vData, uint16_t samples, uint8_t windowType, uint8_t dir); 
+	void printVector(float *vD, uint8_t n, uint8_t scaleType);
 	
 private:
 	/* Functions */
 	uint8_t Exponent(uint16_t value);
-	void Swap(long *x, long *y);
+	void Swap(float *x, float *y);
 	
 };
 
