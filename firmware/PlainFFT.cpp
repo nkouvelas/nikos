@@ -76,7 +76,7 @@ void PlainFFT::compute(double *vReal, double *vImag, uint16_t samples, uint8_t d
 
 void PlainFFT::complexToMagnitude(double *vReal, double *vImag, uint16_t samples) {
 // vM is half the size of vReal and vImag
-	for (uint8_t i = 0; i < samples; i++) vReal[i] = sqrt(sq(vReal[i]) + sq(vImag[i]));
+	for (uint8_t i = 0; i < samples; i++) vReal[i] = sqrt((vReal[i]*vReal[i]) + (vImag[i]*vImag[i]));
 }
 
 void PlainFFT::windowing(double *vData, uint16_t samples) {
