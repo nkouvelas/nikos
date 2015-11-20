@@ -10,8 +10,8 @@
 #include <stdio.h>  /* for fwrite */
 #include <sstream>
 
-#include "util/util.h"
-#include "util/flags.h"
+#include "util.h"
+#include "flags.h"
 
 DECLARE_int32(minloglevel);
 
