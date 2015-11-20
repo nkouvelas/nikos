@@ -431,14 +431,14 @@
 
 #include "portpins.h"
 
-#include <avr/common.h>
+#include "common.h"
 
-#include <avr/version.h>
+#include "version.h"
 
 /* Include fuse.h after individual IO header files. */
-#include <avr/fuse.h>
+#include "fuse.h"
 
 /* Include lock.h after individual IO header files. */
-#include <avr/lock.h>
+#include "lock.h"
 
 #endif /* _AVR_IO_H_ */
