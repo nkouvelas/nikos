@@ -34,7 +34,7 @@ uint8_t PlainFFT::Revision(void)
 	return(FFT_LIB_REV);
 }
 
-void PlainFFT::Compute(long *vReal, long *vImag, uint16_t samples, uint8_t dir) 
+void PlainFFT::Compute(float *vReal, float *vImag, uint16_t samples, uint8_t dir) 
 {
 /* Computes in-place complex-to-complex FFT */
 	/* Reverse bits */
@@ -89,7 +89,7 @@ void PlainFFT::Compute(long *vReal, long *vImag, uint16_t samples, uint8_t dir)
 	}
 }
 
-void PlainFFT::ComplexToMagnitude(long *vReal, long *vImag, uint16_t samples) 
+void PlainFFT::ComplexToMagnitude(float *vReal, float *vImag, uint16_t samples) 
 {
 /* vM is half the size of vReal and vImag */
 	for (uint8_t i = 0; i < samples; i++) {
@@ -97,7 +97,7 @@ void PlainFFT::ComplexToMagnitude(long *vReal, long *vImag, uint16_t samples)
 	}
 }
 
-void PlainFFT::Windowing(long *vData, uint16_t samples, uint8_t windowType, uint8_t dir) 
+void PlainFFT::Windowing(float *vData, uint16_t samples, uint8_t windowType, uint8_t dir) 
 {
 /* Weighing factors are computed once before multiple use of FFT */
 /* The weighing function is symetric; half the weighs are recorded */
@@ -161,7 +161,7 @@ void PlainFFT::Windowing(long *vData, uint16_t samples, uint8_t windowType, uint
 
 /* Private functions */
 
-void PlainFFT::Swap(long *x, long *y) 
+void PlainFFT::Swap(float *x, float *y) 
 {
 	double temp = *x;
 	*x = *y;
@@ -175,3 +175,27 @@ uint8_t PlainFFT::Exponent(uint16_t value)
 	while (((value >> result) & 1) != 1) result++;
 	return(result);
 }
+
+///////////////////////////////////////////////
+void printVector(float *vD, uint8_t n, uint8_t scaleType) {
+	    double timeInterval = (500);
+	    for (uint16_t i = 0; i < n; i++) {
+	        // Print abscissa value
+	        if(scaleType==0) {
+	        
+	            Serial.print(i, DEC);
+	            break;}
+	        if (scaleType==1){
+	            Serial.print((i * timeInterval), 6);
+	            break;}
+	         if (scaleType==2){ 
+	            Serial.print((i / (timeInterval * (samplesCount-1))), 6);
+	            break;}
+	        
+	        Serial.print(" ");
+	        // Print ordinate value
+	        Serial.print(vD[i], 6);
+	        Serial.println();
+	    }
+	    Serial.println();
+	}
