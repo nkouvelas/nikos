@@ -177,25 +177,25 @@ uint8_t PlainFFT::Exponent(uint16_t value)
 }
 
 ///////////////////////////////////////////////
-void printVector(float *vD, uint8_t n, uint8_t scaleType) {
-	    double timeInterval = (500);
-	    for (uint16_t i = 0; i < n; i++) {
+//void printVector(float *vD, uint8_t n, uint8_t scaleType) {
+	  //  double timeInterval = (500);
+	  //  for (uint16_t i = 0; i < n; i++) {
 	        // Print abscissa value
-	        if(scaleType==0) {
+	      //  if(scaleType==0) {
 	        
-	            Serial.print(i, DEC);
-	            break;}
-	        if (scaleType==1){
-	            Serial.print((i * timeInterval), 6);
-	            break;}
-	         if (scaleType==2){ 
-	            Serial.print((i / (timeInterval * (samplesCount-1))), 6);
-	            break;}
+	         //   Serial.print(i, DEC);
+	         //   break;}
+	      //  if (scaleType==1){
+	          //  Serial.print((i * timeInterval), 6);
+	          //  break;}
+	        // if (scaleType==2){ 
+	           // Serial.print((i / (timeInterval * (samplesCount-1))), 6);
+	           // break;}
 	        
-	        Serial.print(" ");
+	       // Serial.print(" ");
 	        // Print ordinate value
-	        Serial.print(vD[i], 6);
-	        Serial.println();
-	    }
-	    Serial.println();
-	}
+	       // Serial.print(vD[i], 6);
+	      //  Serial.println();
+	   // }
+	  //  Serial.println();
+//	}
