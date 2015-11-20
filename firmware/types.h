@@ -16,7 +16,7 @@
 #define __MCU_TYPE__	__MCU_AVR__
 
 //---- Refer "Rom File Maker Manual Vx.x.pdf"
-#include <avr/pgmspace.h>
+#include "pgmspace.h"
 
 #define	_ENDIAN_LITTLE_	0	/**<  This must be defined if system is little-endian alignment */
 #define	_ENDIAN_BIG_		1
