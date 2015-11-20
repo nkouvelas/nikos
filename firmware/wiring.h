@@ -25,7 +25,7 @@
 #ifndef Wiring_h
 #define Wiring_h
 
-#include <avr/io.h>
+#include "io.h"
 #include <stdlib.h>
 #include <math.h>
 #include "binary.h"
