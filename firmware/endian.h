@@ -19,7 +19,7 @@
 #ifndef	_ENDIAN_H
 #define	_ENDIAN_H	1
 
-#include <features.h>
+#include "features.h"
 
 /* Definitions for byte order, according to significance of bytes,
    from low addresses to high addresses.  The value is what you get by
@@ -34,7 +34,7 @@
 #define	__PDP_ENDIAN	3412
 
 /* This file defines `__BYTE_ORDER' for the particular machine.  */
-#include <bits/endian.h>
+#include "endian.h"
 
 /* Some machines may need to use a different endianness for floating point
    values.  */
@@ -58,7 +58,7 @@
 
 #ifdef __USE_BSD
 /* Conversion interfaces.  */
-# include <byteswap.h>
+# include "byteswap.h"
 
 # if __BYTE_ORDER == __LITTLE_ENDIAN
 #  define htobe16(x) __bswap_16 (x)
