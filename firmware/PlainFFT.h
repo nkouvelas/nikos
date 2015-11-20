@@ -8,7 +8,7 @@ Didier Longueville invenit et fecit October 2010
 #define PlainFFT_h
 #include "application.h"
 #include <math.h>
-#include "WProgram.h" // This is where the standard Arduino code lies
+//#include "WProgram.h" // This is where the standard Arduino code lies
 
 #define FFT_LIB_REV 0x01
 // Custom constants
