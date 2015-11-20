@@ -71,7 +71,7 @@ struct fuse *fuse_setup_compat25(int argc, char *argv[],
 void fuse_teardown_compat22(struct fuse *fuse, int fd, char *mountpoint);
 
 #if !defined(__FreeBSD__) && !defined(__NetBSD__) && !defined(__APPLE__)
-#include <sys/statfs.h>
+#include "statfs.h"
 
 struct fuse_operations_compat22 {
 	int (*getattr) (const char *, struct stat *);
