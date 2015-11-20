@@ -37,15 +37,15 @@
 
 #include <string>
 
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/macros.h>
-#include <google/protobuf/stubs/platform_macros.h>
+#include "port.h"
+#include "macros.h"
+#include "platform_macros.h"
 
 // TODO(liujisi): Remove the following includes after the include clean-up.
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/scoped_ptr.h>
-#include <google/protobuf/stubs/mutex.h>
-#include <google/protobuf/stubs/callback.h>
+#include "logging.h"
+#include "scoped_ptr.h"
+#include "mutex.h"
+#include "callback.h"
 
 #ifndef PROTOBUF_USE_EXCEPTIONS
 #if defined(_MSC_VER) && defined(_CPPUNWIND)
