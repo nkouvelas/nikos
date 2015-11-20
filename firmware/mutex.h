@@ -10,10 +10,10 @@
 #ifndef RE2_UTIL_MUTEX_H_
 #define RE2_UTIL_MUTEX_H_
 
-#include <stdlib.h>
+#include "stdlib.h"
 
 #if !defined(_WIN32)
-#include <unistd.h>  // For POSIX options
+#include "unistd.h"  // For POSIX options
 #endif
 
 namespace re2 {
@@ -49,10 +49,10 @@ namespace re2 {
 #   undef _XOPEN_SOURCE
 #   define _XOPEN_SOURCE 500  // may be needed to get the rwlock calls
 # endif
-# include <pthread.h>
+# include "pthread.h"
   typedef pthread_rwlock_t MutexType;
 #elif HAVE_PTHREAD
-# include <pthread.h>
+# include "pthread.h"
   typedef pthread_mutex_t MutexType;
 #elif defined(_WIN32)
 # define WIN32_LEAN_AND_MEAN  // We only need minimal includes
@@ -64,7 +64,7 @@ namespace re2 {
 #     define _WIN32_WINNT 0x0400
 #   endif
 # endif
-# include <windows.h>
+# include "windows.h"
   typedef CRITICAL_SECTION MutexType;
 #else
 # error Need to implement mutex.h for your architecture, or #define NO_THREADS
@@ -113,7 +113,7 @@ class Mutex {
 // In debug mode, we assert these invariants, while in non-debug mode
 // we do nothing, for efficiency.  That's why everything is in an
 // assert.
-#include <assert.h>
+#include "assert.h"
 
 Mutex::Mutex() : mutex_(0) { }
 Mutex::~Mutex()            { assert(mutex_ == 0); }
