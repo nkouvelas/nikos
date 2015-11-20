@@ -429,7 +429,7 @@
 #  endif
 #endif
 
-#include <avr/portpins.h>
+#include "portpins.h"
 
 #include <avr/common.h>
 
