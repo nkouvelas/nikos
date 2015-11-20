@@ -9,7 +9,7 @@ extern "C" {
 
 #define __NEED_time_t
 
-#include <bits/alltypes.h>
+#include "alltypes.h"
 
 struct utimbuf
 {
