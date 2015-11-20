@@ -21,7 +21,7 @@
 #define DEFINE_string(name, deflt, desc) DEFINE_flag(string, name, deflt, desc)
 
 #define DECLARE_bool(name) DECLARE_flag(bool, name)
-#define DECLARE_int32(name) DECLARE_flag(int32, name)
+#define DECLARE_int32(name) DECLARE_flag(int, name)
 #define DECLARE_string(name) DECLARE_flag(string, name)
 
 #endif  // RE2_UTIL_FLAGS_H__
