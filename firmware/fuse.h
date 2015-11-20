@@ -30,13 +30,13 @@
 
 #include "fuse_common.h"
 
-#include <fcntl.h>
-#include <time.h>
-#include <utime.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/statvfs.h>
-#include <sys/uio.h>
+#include "fcntl.h"
+#include "time.h"
+#include "utime.h"
+#include "types.h"
+#include "stat.h"
+#include "statvfs.h"
+#include "uio.h"
 
 #ifdef __cplusplus
 extern "C" {
