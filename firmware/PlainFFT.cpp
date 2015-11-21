@@ -94,9 +94,9 @@ void PlainFFT::windowing(double *vData, uint16_t samples) {
 	}
 }
 
-uint16_t PlainFFT::majorPeak(double *vD, uint16_t samples, double samplingFrequency) {
+int PlainFFT::majorPeak(double *vD, uint16_t samples, double samplingFrequency) {
 	double maxY = 0;
-	uint16_t IndexOfMaxY = 0;
+	int IndexOfMaxY = 0;
 	for (uint16_t i = 1; i < ((samples >> 1) - 1); i++) {
 		if ((vD[i-1] < vD[i]) && (vD[i] > vD[i+1])) {
 			if (vD[i] > maxY) {
