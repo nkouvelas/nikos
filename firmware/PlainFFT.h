@@ -32,7 +32,7 @@ class PlainFFT {
 		// Functions
 		void complexToMagnitude(double *vReal, double *vImag, uint16_t samples);
 		void compute(double *vReal, double *vImag, uint16_t samples, uint8_t dir);
-		int majorPeak(double *vD, uint16_t samples, double samplingFrequency);
+		double majorPeak(double *vD, uint16_t samples, double samplingFrequency);
 		void printMagnitudes(double *vM, uint16_t samples);
 		uint8_t revision(void);
 		void windowing(double *vData, uint16_t samples); 
