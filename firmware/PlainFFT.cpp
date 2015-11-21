@@ -94,7 +94,7 @@ void PlainFFT::windowing(double *vData, uint16_t samples) {
 	}
 }
 
-int PlainFFT::majorPeak(double *vD, uint16_t samples, double samplingFrequency) {
+double PlainFFT::majorPeak(double *vD, uint16_t samples, double samplingFrequency) {
 	double maxY = 0;
 	int IndexOfMaxY = 0;
 	for (uint16_t i = 1; i < ((samples >> 1) - 1); i++) {
@@ -108,8 +108,8 @@ int PlainFFT::majorPeak(double *vD, uint16_t samples, double samplingFrequency) 
 	double delta = 0.5 * ((vD[IndexOfMaxY-1] - vD[IndexOfMaxY+1]) / (vD[IndexOfMaxY-1] - (2.0 * vD[IndexOfMaxY]) + vD[IndexOfMaxY+1]));
 	double interpolatedX = ((IndexOfMaxY + delta)  * samplingFrequency) / (samples-1);
 	// retuned value: interpolated frequency peak apex
-	//return(interpolatedX);  to allaksa  ki evala allo return
-	return (IndexOfMaxY);
+	return(interpolatedX);  //to allaksa  ki evala allo return
+	//return (IndexOfMaxY);
 }
 
 void PlainFFT::printMagnitudes(double *vM, uint16_t samples){
