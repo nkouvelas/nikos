@@ -106,11 +106,11 @@ String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplin
 		if ((vD[i-1] < vD[i]) && (vD[i] > vD[i+1])) {
 			if(vD[i] >= maxY3){
 			        maxY3 = vD[i];
-				IndexOfMax3 = i;
+				IndexOfMaxY3 = i;
 			}
 			if(vD[i] >= maxY2){
 				maxY3 = maxY2;
-			        IndexOfMaxY3 = IndexOfMax2; 
+			        IndexOfMaxY3 = IndexOfMaxY2; 
 				maxY2 = vD[i];
 				IndexOfMaxY2 = i;
 			}
