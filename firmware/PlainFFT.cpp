@@ -94,22 +94,47 @@ void PlainFFT::windowing(double *vData, uint16_t samples) {
 	}
 }
 
-double PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplingFrequency) {
-	double maxY = 0;
+String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplingFrequency) {
+	String result = "";
+	double maxY = 2;
+	double maxY2 = 1;//dikom
+	double maxY3 = 0;//dik
 	int IndexOfMaxY = 0;
+	int IndexOfMaxY2 = 0;//dikom
+	int IndexOfMaxY3 = 0;//dikom
 	for (uint16_t i = 1; i < ((samples >> 1) - 1); i++) {
 		if ((vD[i-1] < vD[i]) && (vD[i] > vD[i+1])) {
-			if (vD[i] > maxY) {
+			if(vD[i]) >= maxY3){
+			        maxY3 = vD[i];
+				IndexOfMax3 = i;
+			}
+			if(vD[i]) >= maxY2){
+				maxY3 = maxY2;
+			        IndexOfMaxY3 = IndexOfMax2; 
+				maxY2 = vD[i];
+				IndexOfMaxY2 = i;
+			}
+			if (vD[i] >= maxY) {
+				maxY3 = maxY2;
+				IndexOfMaxY3 = IndexOfMaxY2;
+				maxY2 = maxY;
+			        IndexOfMaxY2 = IndexOfMaxY;
 				maxY = vD[i];
 				IndexOfMaxY = i;
 			}
 		}
 	}
-	double delta = 0.5 * ((vD[IndexOfMaxY-1] - vD[IndexOfMaxY+1]) / (vD[IndexOfMaxY-1] - (2.0 * vD[IndexOfMaxY]) + vD[IndexOfMaxY+1]));
-	double interpolatedX = ((IndexOfMaxY + delta)  * samplingFrequency) / (samples-1);
+	double delta1 = 0.5 * ((vD[IndexOfMaxY-1] - vD[IndexOfMaxY+1]) / (vD[IndexOfMaxY-1] - (2.0 * vD[IndexOfMaxY]) + vD[IndexOfMaxY+1]));
+	double interpolatedX = ((IndexOfMaxY + delta1)  * samplingFrequency) / (samples-1);
 	// retuned value: interpolated frequency peak apex
-	return(interpolatedX);  //to allaksa  ki evala allo return
-	//return (IndexOfMaxY);
+	double delta2 = 0.5 * ((vD[IndexOfMaxY2-1] - vD[IndexOfMaxY2+1]) / (vD[IndexOfMaxY2-1] - (2.0 * vD[IndexOfMaxY2]) + vD[IndexOfMaxY2+1]));
+	double interpolatedX2 = ((IndexOfMaxY2 + delta2)  * samplingFrequency) / (samples-1);
+	////////////////////////////////////////
+	double delta3 = 0.5 * ((vD[IndexOfMaxY3-1] - vD[IndexOfMaxY3+1]) / (vD[IndexOfMaxY3-1] - (2.0 * vD[IndexOfMaxY3]) + vD[IndexOfMaxY3+1]));
+	double interpolatedX3 = ((IndexOfMaxY3 + delta3)  * samplingFrequency) / (samples-1);
+	result = String(interpolatedX) + "," + String(interpolatedX2) + "," + String(interpolatedX3);
+	return(result);  //to allaksa  ki evala allo return
+
 }
 
 double PlainFFT::majorPeakIndex(double *vD, uint16_t samples, double samplingFrequency) {
