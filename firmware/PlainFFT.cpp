@@ -109,18 +109,21 @@ String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplin
 				IndexOfMaxY3 = i;
 			}
 			if(vD[i] >= maxY2){
+				amp = maxY3;
+				ind = IndexOfMaxY3;
 				maxY3 = maxY2;
 			        IndexOfMaxY3 = IndexOfMaxY2; 
 				maxY2 = vD[i];
 				IndexOfMaxY2 = i;
-			}
-			if (vD[i] >= maxY) {
-				maxY3 = maxY2;
-				IndexOfMaxY3 = IndexOfMaxY2;
-				maxY2 = maxY;
-			        IndexOfMaxY2 = IndexOfMaxY;
-				maxY = vD[i];
-				IndexOfMaxY = i;
+			
+				if (vD[i] >= maxY) {
+					maxY3 = amp;
+					IndexOfMaxY3 = ind;
+					maxY2 = maxY;
+				        IndexOfMaxY2 = IndexOfMaxY;
+					maxY = vD[i];
+					IndexOfMaxY = i;
+				}
 			}
 		}
 	}
@@ -132,7 +135,7 @@ String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplin
 	////////////////////////////////////////
 	double delta3 = 0.5 * ((vD[IndexOfMaxY3-1] - vD[IndexOfMaxY3+1]) / (vD[IndexOfMaxY3-1] - (2.0 * vD[IndexOfMaxY3]) + vD[IndexOfMaxY3+1]));
 	double interpolatedX3 = ((IndexOfMaxY3 + delta3)  * samplingFrequency) / (samples-1);
-	result = String(interpolatedX) + "," + String(interpolatedX2) + "," + String(interpolatedX3);
+	result = String(interpolatedX) + "," + String(maxY) + "," + String(interpolatedX2) + "," + String(maxY2) + "," + String(interpolatedX3) + "," + String(maxY3);
 	return(result);  //to allaksa  ki evala allo return
 
 }
