@@ -95,6 +95,8 @@ void PlainFFT::windowing(double *vData, uint16_t samples) {
 }
 
 String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplingFrequency) {
+	double amp;
+	int ind;
 	String result = "";
 	double maxY = 2;
 	double maxY2 = 1;//dikom
