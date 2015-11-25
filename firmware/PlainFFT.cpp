@@ -137,7 +137,7 @@ String PlainFFT::majorPeakFrequency(double *vD, uint16_t samples, double samplin
 	////////////////////////////////////////
 	double delta3 = 0.5 * ((vD[IndexOfMaxY3-1] - vD[IndexOfMaxY3+1]) / (vD[IndexOfMaxY3-1] - (2.0 * vD[IndexOfMaxY3]) + vD[IndexOfMaxY3+1]));
 	double interpolatedX3 = ((IndexOfMaxY3 + delta3)  * samplingFrequency) / (samples-1);
-	result = String(int(interpolatedX)) + "," + String(int((10*log(maxY)))) + "," + String(int(interpolatedX2)) + "," + String(int((10*log(maxY2)))) + "," + String(int(interpolatedX3)) + "," + String(int((10*log(maxY3))));
+	result = "|" + String(int(interpolatedX)) + "," + String(int(interpolatedX2)) + "," + String(int(interpolatedX3)) + "," + String(int((10*log(maxY)))) + "," + String(int((10*log(maxY2)))) + "," + String(int((10*log(maxY3))));
 	return(result);  //to allaksa  ki evala allo return
 
 }
